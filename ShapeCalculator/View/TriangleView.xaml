@@ -16,10 +16,13 @@
         </Style>
         <Style TargetType="Entry">
             <Setter Property="WidthRequest" Value="178" />
-            <Setter Property="HeightRequest" Value="18" />
+            <Setter Property="HeightRequest" Value="14" />
+            <Setter Property="Margin" Value="0,0,40,0" />
         </Style>
         <Style TargetType="Label">
             <Setter Property="WidthRequest" Value="128" />
+            <Setter Property="VerticalTextAlignment" Value="End" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
     </ContentPage.Resources>
     <Shell.BackButtonBehavior>
@@ -28,7 +31,7 @@
     <VerticalStackLayout HorizontalOptions="Center">
         <HorizontalStackLayout Margin="20">
             <VerticalStackLayout>
-                <Image Source="dotnet_bot.png" />
+                <Image Source="triangle_area.png" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
@@ -64,7 +67,7 @@
         <!--  2nd Row  -->
         <HorizontalStackLayout Margin="20">
             <VerticalStackLayout>
-                <Image Source="dotnet_bot.png" />
+                <Image Source="triangle_perimeter.png" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
@@ -104,7 +107,7 @@
         <!--  3nd Row  -->
         <HorizontalStackLayout Margin="20">
             <VerticalStackLayout>
-                <Image Source="dotnet_bot.png" />
+                <Image Source="triangle_volume.png" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
@@ -119,7 +122,7 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="Height (h)" />
-                    <Entry x:Name="txtHeigh2" />
+                    <Entry x:Name="txtHeight2" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
