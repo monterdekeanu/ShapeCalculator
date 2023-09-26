@@ -53,10 +53,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModel\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="View\TriangleView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

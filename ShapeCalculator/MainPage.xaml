@@ -3,17 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShapeCalculator.MainPage">
     <ContentPage.Resources>
-        <Style x:Key="header">
+        <Style TargetType="Label" x:Key="header">
             <Setter Property="FontSize" Value="Header"/>
+        </Style>
+        <Style TargetType="Button" x:Key="defaultBtn">
+            <Setter Property="BackgroundColor" Value="DarkSlateBlue"/>
         </Style>
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
             <Label Style="{StaticResource header}" Text="Shape Dashboard"/>
-            
+            <Button Style="{StaticResource defaultBtn}" AutomationId="0" Text="Rectangle" Clicked="OnClickOpenPage"/>
+            <Button Style="{StaticResource defaultBtn}" AutomationId="1" Text="Square" Clicked="OnClickOpenPage"/>
+            <Button Style="{StaticResource defaultBtn}" AutomationId="2" Text="Triangle" Clicked="OnClickOpenPage"/>
+            <Button Style="{StaticResource defaultBtn}" AutomationId="3" Text="Circle" Clicked="OnClickOpenPage"/>
         </VerticalStackLayout>
     </ScrollView>
 
