@@ -3,8 +3,7 @@
 <ContentPage
     x:Class="ShapeCalculator.ViewModel.TriangleView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="TriangleView">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="WidthRequest" Value="100" />
@@ -48,9 +47,9 @@
 
             <FlexLayout Direction="Column" JustifyContent="SpaceAround">
                 <Label FontSize="Small" Text="Result" />
-                <Label Text="NaN" />
+                <Label Text="{Binding Area, Mode=TwoWay}" />
                 <HorizontalStackLayout>
-                    <Button Text="Calculate" />
+                    <Button Clicked="OnClickBtnCalculate" Text="Calculate" />
                     <Button Text="Clear" />
                     <Picker Title="Measurement">
                         <Picker.Items>
