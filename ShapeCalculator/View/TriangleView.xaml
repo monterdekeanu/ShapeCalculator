@@ -47,11 +47,14 @@
 
             <FlexLayout Direction="Column" JustifyContent="SpaceAround">
                 <Label FontSize="Small" Text="Result" />
-                <Label Text="{Binding Area, Mode=TwoWay}" />
+                <Label Text="{Binding Area}" />
                 <HorizontalStackLayout>
-                    <Button Clicked="OnClickBtnCalculate" Text="Calculate" />
-                    <Button Text="Clear" />
-                    <Picker Title="Measurement">
+                    <Button
+                        AutomationId="0"
+                        Clicked="OnClickBtnCalculate"
+                        Text="Calculate" />
+                    <Button AutomationId="0" Text="Clear" />
+                    <Picker x:Name="activeUnitRow_0" Title="Measurement">
                         <Picker.Items>
                             <x:String>in</x:String>
                             <x:String>m</x:String>
@@ -87,11 +90,14 @@
 
             <FlexLayout Direction="Column" JustifyContent="SpaceAround">
                 <Label FontSize="Small" Text="Result" />
-                <Label Text="NaN" />
+                <Label Text="{Binding Perimeter}" />
                 <HorizontalStackLayout>
-                    <Button Text="Calculate" />
-                    <Button Text="Clear" />
-                    <Picker Title="Measurement">
+                    <Button
+                        AutomationId="1"
+                        Clicked="OnClickBtnCalculate"
+                        Text="Calculate" />
+                    <Button AutomationId="1" Text="Clear" />
+                    <Picker x:Name="activeUnitRow_1" Title="Measurement">
                         <Picker.Items>
                             <x:String>in</x:String>
                             <x:String>m</x:String>
@@ -112,12 +118,8 @@
             <VerticalStackLayout>
                 <Label FontSize="Small" Text="Volume - Cone" />
                 <HorizontalStackLayout>
-                    <Label Text="Base" />
-                    <Entry x:Name="txtBase2" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
                     <Label Text="Radius (r)" />
-                    <Entry x:Name="txtRadius2" />
+                    <Entry x:Name="txtRadius" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="Height (h)" />
@@ -127,11 +129,14 @@
 
             <FlexLayout Direction="Column" JustifyContent="SpaceAround">
                 <Label FontSize="Small" Text="Result" />
-                <Label Text="NaN" />
+                <Label Text="{Binding Volume}" />
                 <HorizontalStackLayout>
-                    <Button Text="Calculate" />
-                    <Button Text="Clear" />
-                    <Picker Title="Measurement">
+                    <Button
+                        AutomationId="2"
+                        Clicked="OnClickBtnCalculate"
+                        Text="Calculate" />
+                    <Button AutomationId="2" Text="Clear" />
+                    <Picker x:Name="activeUnitRow_2" Title="Measurement">
                         <Picker.Items>
                             <x:String>in</x:String>
                             <x:String>m</x:String>

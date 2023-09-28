@@ -49,6 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewModel\TriangleViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\triangle_area.png" />
 	  <None Remove="Resources\Images\triangle_perimeter.png" />
 	  <None Remove="Resources\Images\triangle_volume.png" />
