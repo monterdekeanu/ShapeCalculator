@@ -35,24 +35,23 @@ namespace ShapeCalculator.Model
 
         public void OnClickCalculate( )
         {
-            //input side entry
             ComputeArea();
             ComputePerimeter();
             ComputeVolume();
         }
         private void ComputeArea()
         {
-            Area = Side * Side;
+            Area = Math.Round(Side * Side,4);
         }
 
         private void ComputePerimeter()
         {
-            Perimeter = 4 * Side;
+            Perimeter = Math.Round(4 * Side,4);
         }
 
         private void ComputeVolume()
         {
-            Volume = Math.Pow(Side, 3);
+            Volume = Math.Round(Math.Pow(Side, 3),4);
         }
     }
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShapeCalculator.ViewModel.SquareView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="100" />
+            <Setter Property="HeightRequest" Value="18" />
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="WidthRequest" Value="128" />
+            <Setter Property="HeightRequest" Value="128" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="WidthRequest" Value="178" />
+            <Setter Property="HeightRequest" Value="14" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="WidthRequest" Value="128" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+        </Style>
+
+    </ContentPage.Resources>
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                <Image Source="square_area.png" />
+                <Image Source="square_perimeter.png" />
+                <Image Source="square_volume.png" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Side" />
+                    <Entry x:Name="txtSide" />
+                    <Picker
+                        x:Name="activeUnit"
+                        Title="Unit"
+                        Margin="20,0,0,0"
+                        AutomationId="0"
+                        SelectedIndexChanged="OnClickUnitChange">
+                        <Picker.Items>
+                            <x:String>in</x:String>
+                            <x:String>m</x:String>
+                            <x:String>cm</x:String>
+                            <x:String>km</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </HorizontalStackLayout>
+                <Label FontSize="Medium" Text="Results" />
+                <HorizontalStackLayout>
+                    <Label Text="Area" />
+                    <Entry IsReadOnly="True" Text="{Binding Area}" />
+                    <Label
+                        x:Name="lblSquareUnit_0"
+                        Margin="20,0,0,0"
+                        Text="in^2" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Perimeter" />
+                    <Entry IsReadOnly="True" Text="{Binding Perimeter}" />
+                    <Label
+                        x:Name="lblSquareUnit_1"
+                        Margin="20,0,0,0"
+                        Text="in" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Volume - Cube" />
+                    <Entry IsReadOnly="True" Text="{Binding Volume}" />
+                    <Label
+                        x:Name="lblSquareUnit_2"
+                        Margin="20,0,0,0"
+                        Text="in^3" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Clicked="OnClickCalculate" Text="Calculate" />
+                    <Button Clicked="OnClickClear" Text="Clear" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

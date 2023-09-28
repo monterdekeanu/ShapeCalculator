@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
-    x:Class="ShapeCalculator.ViewModel.TriangleView"
+    x:Class="ShapeCalculator.ViewModel.RectangleViewModel"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Resources>
@@ -30,17 +29,18 @@
     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <HorizontalStackLayout Margin="20">
             <VerticalStackLayout>
-                <Image IsAnimationPlaying="True" Source="triangle_area.png" />
+                <Image Source="rectangle_area.png" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
                 <Label FontSize="Small" Text="Area" />
                 <HorizontalStackLayout>
-                    <Label Text="Base" />
-                    <Entry x:Name="txtBase" Text="0" />
+                    <Label Text="Length (l)" />
+                    <Entry x:Name="txtLength" Text="0" />
                     <Picker
                         x:Name="activeUnitRow_0"
                         Title="Unit"
+                        Margin="20,0,0,0"
                         AutomationId="0"
                         SelectedIndexChanged="OnClickUnitChange">
                         <Picker.Items>
@@ -52,7 +52,89 @@
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Label Text="Height" />
+                    <Label Text="Width (w)" />
+                    <Entry x:Name="txtWidth" Text="0" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <FlexLayout
+                Margin="20,0,0,0"
+                Direction="Column"
+                JustifyContent="SpaceAround">
+
+                <HorizontalStackLayout>
+                    <Button
+                        AutomationId="0"
+                        Clicked="OnClickBtnCalculate"
+                        Text="Calculate" />
+                    <Button
+                        AutomationId="0"
+                        Clicked="OnClickBtnClear"
+                        Text="Clear" />
+                </HorizontalStackLayout>
+            </FlexLayout>
+        </HorizontalStackLayout>
+
+        <!--  2nd Row  -->
+        <HorizontalStackLayout Margin="20">
+            <VerticalStackLayout>
+                <Image Source="rectangle_perimeter.png" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label FontSize="Small" Text="Results" />
+                <HorizontalStackLayout>
+                    <Label Text="Area" />
+                    <Entry IsReadOnly="True" Text="{Binding Area}" />
+                    <Label
+                        x:Name="rectangleUnit_0"
+                        Text="in ^2"
+                        WidthRequest="64" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Perimeter" />
+                    <Entry IsReadOnly="True" Text="{Binding Perimeter}" />
+                    <Label
+                        x:Name="rectangleUnit_1"
+                        Text="in"
+                        WidthRequest="64" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+
+        </HorizontalStackLayout>
+
+        <!--  3nd Row  -->
+        <HorizontalStackLayout Margin="20">
+            <VerticalStackLayout>
+                <Image Source="rectangle_volume.png" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label FontSize="Small" Text="Volume - Rectangular Tank" />
+                <HorizontalStackLayout>
+                    <Label Text="Length (l)" />
+                    <Entry x:Name="txtLength2" Text="0" />
+                    <Picker
+                        x:Name="activeUnitRow_2"
+                        Title="Unit"
+                        Margin="20,0,0,0"
+                        AutomationId="1"
+                        SelectedIndexChanged="OnClickUnitChange">
+                        <Picker.Items>
+                            <x:String>in</x:String>
+                            <x:String>m</x:String>
+                            <x:String>cm</x:String>
+                            <x:String>km</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Width (w)" />
+                    <Entry x:Name="txtWidth2" Text="0" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Height (h)" />
                     <Entry x:Name="txtHeight" Text="0" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -63,127 +145,20 @@
                 JustifyContent="SpaceAround">
                 <Label FontSize="Small" Text="Result" />
                 <HorizontalStackLayout>
-                    <Entry IsReadOnly="True" Text="{Binding Area}" />
-                    <Label x:Name="triangleUnit_0" Text="in ^2" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Button
-                        AutomationId="0"
-                        Clicked="OnClickBtnCalculate"
-                        Text="Calculate" />
-                    <Button
-                        AutomationId="0"
-                        Clicked="OnClickBtnClear"
-                        Text="Clear" />
-
-                </HorizontalStackLayout>
-            </FlexLayout>
-        </HorizontalStackLayout>
-
-        <!--  2nd Row  -->
-        <HorizontalStackLayout Margin="20">
-            <VerticalStackLayout>
-                <Image Source="triangle_perimeter.png" />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label FontSize="Small" Text="Perimeter" />
-                <HorizontalStackLayout>
-                    <Label Text="Side 1" />
-                    <Entry x:Name="txtSide1" Text="0" />
-                    <Picker
-                        x:Name="activeUnitRow_1"
-                        Title="Unit"
-                        AutomationId="1"
-                        SelectedIndexChanged="OnClickUnitChange">
-                        <Picker.Items>
-                            <x:String>in</x:String>
-                            <x:String>m</x:String>
-                            <x:String>cm</x:String>
-                            <x:String>km</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Label Text="Side 2" />
-                    <Entry x:Name="txtSide2" Text="0" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Label Text="Side 3" />
-                    <Entry x:Name="txtSide3" Text="0" />
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-
-            <FlexLayout
-                Margin="20,0,0,0"
-                Direction="Column"
-                JustifyContent="SpaceAround">
-                <Label FontSize="Small" Text="Result" />
-                <HorizontalStackLayout>
-                    <Entry IsReadOnly="True" Text="{Binding Perimeter}" />
-                    <Label x:Name="triangleUnit_1" Text="in" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Button
-                        AutomationId="1"
-                        Clicked="OnClickBtnCalculate"
-                        Text="Calculate" />
-                    <Button
-                        AutomationId="1"
-                        Clicked="OnClickBtnClear"
-                        Text="Clear" />
-
-                </HorizontalStackLayout>
-            </FlexLayout>
-        </HorizontalStackLayout>
-
-        <!--  3nd Row  -->
-        <HorizontalStackLayout Margin="20">
-            <VerticalStackLayout>
-                <Image Source="triangle_volume.png" />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label FontSize="Small" Text="Volume - Cone" />
-                <HorizontalStackLayout>
-                    <Label Text="Radius (r)" />
-                    <Entry x:Name="txtRadius" Text="0" />
-                    <Picker
-                        x:Name="activeUnitRow_2"
-                        Title="Unit"
-                        AutomationId="2"
-                        SelectedIndexChanged="OnClickUnitChange">
-                        <Picker.Items>
-                            <x:String>in</x:String>
-                            <x:String>m</x:String>
-                            <x:String>cm</x:String>
-                            <x:String>km</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Label Text="Height (h)" />
-                    <Entry x:Name="txtHeight2" Text="0" />
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-
-            <FlexLayout
-                Margin="20,0,0,0"
-                Direction="Column"
-                JustifyContent="SpaceAround">
-                <Label FontSize="Small" Text="Result" />
-                <HorizontalStackLayout>
                     <Entry IsReadOnly="True" Text="{Binding Volume}" />
-                    <Label x:Name="triangleUnit_2" Text="in ^3" />
+                    <Label
+                        x:Name="rectangleUnit_2"
+                        Text="in ^3"
+                        WidthRequest="64" />
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <Button
-                        AutomationId="2"
+                        AutomationId="1"
                         Clicked="OnClickBtnCalculate"
                         Text="Calculate" />
                     <Button
-                        AutomationId="2"
+                        AutomationId="1"
                         Clicked="OnClickBtnClear"
                         Text="Clear" />
 

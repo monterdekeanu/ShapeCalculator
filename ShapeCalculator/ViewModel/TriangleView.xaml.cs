@@ -22,13 +22,13 @@ public partial class TriangleView : ContentPage
         int unitLblId = Int32.Parse(((Picker)sender).AutomationId);
         if (unitLblId == 0)
         {
-            triangleUnit_0.Text = ((Picker)sender).SelectedItem.ToString();
+            triangleUnit_0.Text = ((Picker)sender).SelectedItem.ToString() + " ^2";
         }else if(unitLblId == 1)
         {
             triangleUnit_1.Text = ((Picker)sender).SelectedItem.ToString();
         }else if(unitLblId == 2)
         {
-            triangleUnit_2.Text = ((Picker)sender).SelectedItem.ToString();
+            triangleUnit_2.Text = ((Picker)sender).SelectedItem.ToString() + " ^3";
         }
     }
 
@@ -61,7 +61,7 @@ public partial class TriangleView : ContentPage
         }catch(Exception err)
         {
             Console.WriteLine(err);
-            DisplayAlert("Error", "Invalid Input", "Ok");
+            DisplayAlert("Invalid Input", "Numeric Input Only", "Ok");
             if (computationCalc == 0)
             {
                 activeTriangle.Base = 0;
