@@ -33,7 +33,7 @@
     <VerticalStackLayout HorizontalOptions="Center">
         <HorizontalStackLayout Margin="20">
             <VerticalStackLayout>
-                <Image Source="triangle_area.png" />
+                <Image IsAnimationPlaying="True" Source="triangle_area_animation.gif" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>

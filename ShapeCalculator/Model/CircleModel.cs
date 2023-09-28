@@ -8,17 +8,25 @@ namespace ShapeCalculator.Model
 {
     internal class CircleModel : ShapeModel
     {
-        public decimal Radius { get; set; }
-        public decimal VolumeSphere { get; set; }
+        private double _radius;
+        private double _volumeSphere;
 
         public CircleModel() {
-            this.Radius = 0;
-            this.VolumeSphere = 0;
-            this.Area = 0;
-            this.Perimeter = 0;
+        }
+        public void CalculateArea()
+        {
+            //Area = Math.PI * Math.Pow(Radius, 2);
         }
 
+        public void CalculatePerimeter()
+        {
+            //Perimeter = 2 * Math.PI * Radius;
+        }
 
+        public void CalculateVolume()
+        {
+            //VolumeSphere = (4 / 3) * Math.PI * Math.Pow(Radius, 3);
+        }
 
     }
 }
