@@ -17,8 +17,23 @@ public partial class TriangleView : ContentPage
 		
 	}
 	
+    public void OnClickUnitChange(object sender, EventArgs e)
+    {
+        int unitLblId = Int32.Parse(((Picker)sender).AutomationId);
+        if (unitLblId == 0)
+        {
+            triangleUnit_0.Text = ((Picker)sender).SelectedItem.ToString();
+        }else if(unitLblId == 1)
+        {
+            triangleUnit_1.Text = ((Picker)sender).SelectedItem.ToString();
+        }else if(unitLblId == 2)
+        {
+            triangleUnit_2.Text = ((Picker)sender).SelectedItem.ToString();
+        }
+    }
 
-	public void OnClickBtnCalculate(object sender, EventArgs e)
+
+    public void OnClickBtnCalculate(object sender, EventArgs e)
 	{
         
         int computationCalc = Int32.Parse(((Button)sender).AutomationId);
@@ -66,6 +81,28 @@ public partial class TriangleView : ContentPage
                 activeTriangle.Height = 0;
                 activeTriangle.Volume = 0;
             }
+        }
+    }
+    public void OnClickBtnClear(object sender, EventArgs e)
+    {
+        int clearId = Int32.Parse(((Button)sender).AutomationId);
+
+        if(clearId == 0)
+        {
+            txtBase.Text = "0";
+            txtHeight.Text = "0";
+            activeTriangle.Area = 0;
+        }else if(clearId == 1)
+        {
+            txtSide1.Text = "0";
+            txtSide2.Text = "0";
+            txtSide3.Text = "0";
+            activeTriangle.Perimeter = 0;
+        }else if( clearId == 2)
+        {
+            txtRadius.Text = "0";
+            txtHeight2.Text = "0";
+            activeTriangle.Volume = 0;
         }
     }
 
